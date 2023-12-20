@@ -137,7 +137,7 @@ df4=df4.drop(axis=1,columns=['month_year'])
 df4['ORDERNUMBER']=df4['ORDERNUMBER'].astype(str)
 with column1:
     ordernumber=st.number_input(placeholder='Type a number',step=1,format='%d',label='Order Number')
-    prodline=st.selectbox(label='Product line',options=df4['PRODUCTLINE'].unique(),index=False)
+    prodline=st.selectbox(label='Product line',options=df4['PRODUCTLINE'].unique(),index=None)
 if ordernumber:
     df4=df4[df4['ORDERNUMBER']==str(ordernumber)].copy()
 if prodline:
@@ -150,7 +150,7 @@ if linenumber:
 if contactfirst:
     df4=df4[df4['CONTACTFIRSTNAME']==contactfirst]
 with column3:
-    status=st.selectbox('Status',df4['STATUS'].unique(),index=False)
+    status=st.selectbox('Status',df4['STATUS'].unique(),index=None)
     contactlast=st.text_input(label='Contact Last Name')
 if status:
     df4=df4[df4['STATUS']==status]
