@@ -7,15 +7,7 @@ import io
 st.set_page_config(page_title='Auto Sales',page_icon=':bar_chart:',layout='wide')
 st.title('Auto Sales Analysis')
 
-fl=st.file_uploader(':file_folder: Upload a file',type=(['csv']))
-if fl is not None:
-    filename=fl.name
-    st.write(filename)
-    df=pd.read_csv(filename)
-else:
-    os.chdir(r'C:\Users\ycaro\OneDrive\Área de Trabalho\dashboard')
-    df=pd.read_csv('Auto Sales data.csv')
-
+df=pd.read_csv('Auto Sales data.csv')
 col1,col2=st.columns((2))
 df['ORDERDATE']=pd.to_datetime(df['ORDERDATE'])
 startDate=pd.to_datetime(df['ORDERDATE'].min())
